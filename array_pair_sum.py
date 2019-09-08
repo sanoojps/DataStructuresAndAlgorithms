@@ -64,18 +64,24 @@ def pairs_with_sum(sum, array):
                 t_sum = o_element + i_element
                 # check if sum == given sum
                 if t_sum == sum:
+                    # check if inner element is in the char map
                     if i_element in char_count_map:
-                        
+                        # get the count of inner and outer elements
                         i_char_count = char_count_map[i_element]
                         o_char_count = char_count_map[o_element]
-
+                        # check if both counts are greater than one
+                        # this ensures unique pairing
                         if i_char_count >= 1  \
                             and o_char_count >= 1:
-
+                            # move the unique pairs to array
                             common_sum_pairs.append(
                             [o_element,i_element]
                             )
-
+                            # decrement char count 
+                            # fetch char count first
+                            # to handle the edge case where
+                            # both inner and outer elements are the same
+                            # as we are mutating the char map
                             i_char_count = char_count_map[i_element]
                             char_count = i_char_count - 1
                             char_count_map[i_element] = \
