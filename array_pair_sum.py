@@ -146,3 +146,12 @@ print(
         )
     )
 )
+
+print(
+    "is_anagram: {} ".format(
+        pairs_with_sum(
+        4,
+        [1,2,3,4],
+        )
+    )
+)
