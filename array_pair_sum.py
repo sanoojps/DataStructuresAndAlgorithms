@@ -155,3 +155,53 @@ print(
         )
     )
 )
+
+
+# Logic O(n2)
+#  --- we need to repeat elements in a par
+#  --- the same number of times as they are in the array
+# 1. Make a dict with element as key and count of element as value
+# 2. loop  through the array
+# 3. loop through the array
+# 4. Compare each element to the adjacent element and check 
+#       if teh sum is equal
+#  5. If sum is equal
+#        . Check if the elements count is zero
+            # . if zero that mean we have already encountered the element
+            #.. if not then we decrement the count 
+
+# Logic O(n)
+# Use 2 sets
+#  loop through the array
+#  add current number to  "already seen" set
+#  we have a sum 
+#  we have a number which is the current number
+#  we check if  sum - current_number is present 
+#    in the array
+# add the pair to the output
+def array_pair_sum_On(list,sum):
+
+    seen = set()
+    output = set()
+
+    for element in list:
+
+        target = sum - element
+
+        if target not in seen:
+            seen.add(element)
+
+        else:
+            output.add(
+                (element,target)
+            )
+
+    print(
+       output
+    )
+
+    
+array_pair_sum_On(
+    (1,3,2,2),
+    4
+)
