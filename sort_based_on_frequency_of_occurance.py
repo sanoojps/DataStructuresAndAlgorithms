@@ -73,31 +73,47 @@ def sort_based_on_frequency_of_occurrance(word_to_sort):
             return rhs.count    
 
     # default sort is ascending
-    print(
-        sorted(
+    sortedCharToCountMapSet = sorted(
             charToCountMapSet,key=lambda item: item.count, reverse=True
         )
-    )
-
-    newCharCountMap = CharToCountMap()
-    newCharCountMap.char = "t"
-    newCharCountMap.count = 1
-
-    newCharCountMapSingleSet =  set([newCharCountMap])
-
     print(
-        charToCountMapSet
+        sortedCharToCountMapSet
     )
 
-    print(
-        newCharCountMap in charToCountMapSet
-    )
+    def replicate_string(string,times):
+        string_accrue = ""
+        for index in range(0,times):
+            string_accrue = string_accrue + string
+        return string_accrue
 
-    print(
-        charToCountMapSet.intersection(
-            newCharCountMapSingleSet
-            )   
-    )
+
+
+    sortedString = ""
+    for charToCountMap in charToCountMapSet:
+        stringFromCharToCountMap = replicate_string(charToCountMap.char,charToCountMap.count)
+        sortedString = sortedString + stringFromCharToCountMap
+
+    print(sortedString)
+
+    # newCharCountMap = CharToCountMap()
+    # newCharCountMap.char = "t"
+    # newCharCountMap.count = 1
+
+    # newCharCountMapSingleSet =  set([newCharCountMap])
+
+    # print(
+    #     charToCountMapSet
+    # )
+
+    # print(
+    #     newCharCountMap in charToCountMapSet
+    # )
+
+    # print(
+    #     charToCountMapSet.intersection(
+    #         newCharCountMapSingleSet
+    #         )   
+    # )
 
     # print(
     #     set([newCharCountMap]).difference_update(
@@ -114,7 +130,8 @@ def sort_based_on_frequency_of_occurrance(word_to_sort):
 
 
 
-sort_based_on_frequency_of_occurrance("treee")
+sort_based_on_frequency_of_occurrance("treee") # return eeert
+sort_based_on_frequency_of_occurrance("trrrreee") # return rrrreeet
 
 
 
